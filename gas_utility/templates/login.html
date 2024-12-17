@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+
+
+<main id="main">
+
+
+
+    <!-- ======= Contact Section ======= -->
+
+
+    <section id="contact" class="contact">
+      <div class="container">
+
+
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-4">
+
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                    </div>
+                {% endfor %}
+
+            <form action="" method="post" >
+              {% csrf_token %}
+              <div class="form-group">
+                  <input type="text" name="username" class="form-control" id="username" placeholder="Your username"  />
+                  <div class="validate"></div>
+                </div>
+              <div class="form-group">
+                  <input type="password" name="password" class="form-control" id="password" placeholder="Your Password"  />
+                  <div class="validate"></div>
+              </div>
+              <small>Forget Password<a href="{% url 'forgetpassword' %}"> Password </a> </small>
+              <div class="text-center">
+                <button  class="btn btn-success" type="submit">Login</button></div>
+            </form>
+            <small>Don't have an account<a href="{% url 'registration' %}"> Register Now </a> </small>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock %}
+
+<script>
+    console.log("Script is running!");
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var redirectValue = event.submitter.value; // Get the value of the clicked button
+        switch (redirectValue) {
+            case "dashboard":
+                window.location.href = "{% url 'Service_Request' %}";
+                break;
+            case "profile":
+                window.location.href = "{% url 'Track_Request' %}";
+                break;
+            default:
+                // Handle default case
+                break;
+        }
+    });
+</script>

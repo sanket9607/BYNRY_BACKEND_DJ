@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Service Request Page
+{% endblock %}
+
+{% block content %}
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+
+
+    <section id="contact" class="contact">
+      <div class="container">
+
+
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-4">
+              <h3>Submit your service request</h3>
+            <form action="" method="post" >
+              {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required  />
+                  <div class="validate"></div>
+                </div>
+
+              <div class="form-group">
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required  />
+                  <div class="validate"></div>
+                </div>
+              <div class="form-group">
+                  <input type="text" name="subject" class="form-control" id="subject" placeholder="Your Subject" required />
+                  <div class="validate"></div>
+              </div>
+                <div class="form-group">
+                <label for="dropdown">Select Service Request:</label>
+                <select id="dropdown" name="dropdown">
+                    <option value="Express Shipping">Express Shipping</option>
+                    <option value="Installation Service">Installation Service</option>
+               <option value="Extended Warranty">Extended Warranty</option>
+               </select>
+                    </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required"  placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="text-center">
+                <button  class="btn btn-success" type="submit">Submit Request</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

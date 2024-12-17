@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Choose Option
+{% endblock %}
+
+{% block content %}
+<main id="main">
+    <section id="options" class="options">
+        <div class="container">
+            <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                <div class="col-lg-4">
+                    <h2>Choose an Option</h2>
+                    <a href="{% url 'ServiceRequest' %}" class="btn btn-primary">Service Request</a>
+                    <a href="{% url 'TrackRequest' %}" class="btn btn-secondary">Track Request</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
